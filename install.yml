@@ -1,0 +1,7 @@
+- name: "install app locally"
+  connection: local
+  hosts: localhost
+  roles:
+    - computate.computate_yakuake
+      
+

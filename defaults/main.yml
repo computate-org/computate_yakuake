@@ -1,0 +1,10 @@
+---
+APP_NAME: yakuake
+APP_DEPENDENCIES:
+  - cmake
+APP_USER: "{{ lookup('env', 'USER') }}"
+APP_GROUP: "{{ APP_USER }}"
+APP_SRC: "/usr/local/src/{{ APP_NAME  }}"
+APP_REPO: https://invent.kde.org/utilities/yakuake.git
+APP_TAG: v21.08.1
+

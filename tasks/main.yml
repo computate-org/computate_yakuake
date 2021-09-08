@@ -1,0 +1,58 @@
+---
+- name: "install Development Tools dependency"
+  package:
+    name: "@Development Tools"
+    state: present
+  become: true
+- name: "install epel-release dependency"
+  package:
+    name: epel-release
+    state: present
+  become: true
+- name: "install Power Tools dependency"
+  package:
+    name: dnf-plugins-core
+    state: present
+  become: true
+- name: "install {{ APP_NAME }} dependencies"
+  shell:
+    cmd: yum builddep -y yakuake
+  become: true
+- name: Create the directory {{ APP_SRC }}
+  file:
+    name: "{{ APP_SRC }}"
+    state: directory
+    owner: "{{ APP_USER }}"
+    group: "{{ APP_GROUP }}"
+  become: yes
+- name: Check for the {{ APP_NAME }} README file
+  stat:
+    path: "{{ APP_SRC }}/readme.md"
+  register: APP_README_PATH
+- name: Clone the {{ APP_REPO }} source code into {{ APP_SRC }}
+  git:
+    repo: "{{ APP_REPO }}"
+    dest: "{{ APP_SRC }}"
+    version: "{{ APP_TAG }}"
+  when: not APP_README_PATH.stat.exists
+- name: Create the build directory {{ APP_SRC }}/build
+  file:
+    name: "{{ APP_SRC }}/build"
+    state: directory
+    owner: "{{ APP_USER }}"
+    group: "{{ APP_GROUP }}"
+  become: yes
+- name: Run {{ APP_NAME }} cmake
+  shell: cmake ../
+  args:
+    chdir: "{{ APP_SRC }}/build"
+- name: Run {{ APP_NAME }} make
+  shell: make
+  args:
+    chdir: "{{ APP_SRC }}/build"
+- name: Run {{ APP_NAME }} make install
+  shell: make install
+  args:
+    chdir: "{{ APP_SRC }}/build"
+  become: true
+
