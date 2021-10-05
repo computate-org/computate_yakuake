@@ -3,6 +3,8 @@ APP_PYTHON: "{{ '/usr/bin/python' if lookup('file', '/usr/bin/python', errors='i
 APP_NAME: yakuake
 APP_DEPENDENCIES:
   - cmake
+  - gnome-tweaks
+  - konsole5
 APP_USER: "{{ lookup('env', 'USER') }}"
 APP_GROUP: "{{ APP_USER }}"
 APP_SRC: "/usr/local/src/{{ APP_NAME  }}"

@@ -55,4 +55,7 @@
   args:
     chdir: "{{ APP_SRC }}/build"
   become: true
+- name: "Show next steps"
+  debug:
+    msg: 'Open the Tweaks application, go to "Startup Applications", click [ + ], select "Yakuake", and click [ Add ] to add yakuake to the list of startup applications. '
 
