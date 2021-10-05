@@ -1,4 +1,5 @@
 ---
+APP_PYTHON: "{{ '/usr/bin/python' if lookup('file', '/usr/bin/python', errors='ignore') else '/usr/bin/python3' }}"
 APP_NAME: yakuake
 APP_DEPENDENCIES:
   - cmake
