@@ -5,6 +5,47 @@ APP_DEPENDENCIES:
   - cmake
   - gnome-tweaks
   - konsole5
+  - cmake
+  - cmake-data
+  - cmake-rpm-macros
+  - epel-rpm-macros
+  - epel-rpm-macros-systemd
+  - fpc-srpm-macros
+  - kf5-attica-devel
+  - kf5-kauth-devel
+  - kf5-kbookmarks-devel
+  - kf5-kcodecs-devel
+  - kf5-kcompletion-devel
+  - kf5-kconfig
+  - kf5-kconfigwidgets-devel
+  - kf5-kded
+  - kf5-kio
+  - kf5-kitemviews-devel
+  - kf5-kjobwidgets-devel
+  - kf5-kservice-devel
+  - kf5-ktextwidgets-devel
+  - kf5-kxmlgui-devel
+  - kf5-solid-devel
+  - kf5-sonnet
+  - kf5-sonnet-devel
+  - kf5-kiconthemes-devel
+  - kf5-kio-devel
+  - kf5-knewstuff-devel
+  - kf5-knotifications-devel
+  - kf5-knotifyconfig-devel
+  - kf5-kparts-devel
+  - libglvnd-core-devel
+  - libglvnd-devel
+  - libglvnd-opengl
+  - libuv
+  - lua-srpm-macros
+  - mesa-libEGL-devel
+  - python2-rpm-macros
+  - python36-rpm-macros
+  - qt5-linguist
+  - qt5-rpm-macros
+  - qt5-qtx11extras-devel
+  - appstream
 APP_USER: "{{ lookup('env', 'USER') }}"
 APP_GROUP: "{{ APP_USER }}"
 APP_SRC: "/usr/local/src/{{ APP_NAME  }}"
